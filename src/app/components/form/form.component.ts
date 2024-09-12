@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../shared/material/material.module';
-import { ToDoService } from '../../services';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { ToDo } from '../../services/Models/ToDo.Type';
 import { BaseModule } from '../../shared/base/base.module';
+import { ToDo, ToDoService } from '../../services';
 
 @Component({
   selector: 'app-form',
