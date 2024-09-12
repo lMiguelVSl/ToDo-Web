@@ -23,18 +23,18 @@ export class FormComponent {
   constructor(private formBuilder: FormBuilder, private toDoService: ToDoService, private router: Router, private route: ActivatedRoute) {
     this.ToDoForm = this.formBuilder.group({
       title: ['', Validators.required],
-      isDone: ['', Validators.required]
+      isDone: [false, Validators.required]
     });
 
   }
   ngOnInit(): void {
     this.route.queryParams.subscribe((params: Params) => {
-      if (params['Title']) {
+      if (params['title']) {
         this.isEditMode = true;
-        this.toDoId = params['Id'];
+        this.toDoId = parseInt(params['id']);
         this.ToDoForm.patchValue({
-          title: params['Title'],
-          position: params['IsDone'],
+          title: params['title'],
+          isDone: params['isDone'],
         });
       }
     });
@@ -61,8 +61,8 @@ export class FormComponent {
   updateToDo() {
     if (this.ToDoForm.status === 'VALID') {
       this.ToDo.Id = this.toDoId;
-      this.ToDo.Title = this.ToDoForm.value.firstName;
-      this.ToDo.IsDone = this.ToDoForm.value.position;
+      this.ToDo.Title = this.ToDoForm.value.title;
+      this.ToDo.IsDone = this.ToDoForm.value.isDone == 'true' ? true : false;
 
       this.toDoService.updateToDo(this.ToDo).subscribe({
         next: (res) => {

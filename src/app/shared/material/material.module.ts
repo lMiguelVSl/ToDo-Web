@@ -6,6 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
     exports: [
@@ -15,7 +16,8 @@ import { MatMenuModule } from '@angular/material/menu';
         MatTableModule,
         MatIconModule,
         MatFormFieldModule,
-        MatMenuModule
+        MatMenuModule,
+        MatCheckboxModule
     ]
 })
 export class MaterialModule { }
