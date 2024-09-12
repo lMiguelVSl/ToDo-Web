@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { MaterialModule } from '../../shared/material/material.module';
 
 @Component({
-  selector: 'app-header-component',
+  selector: 'app-header',
   standalone: true,
   imports: [MaterialModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponentComponent {
+export class HeaderComponent {
 
 }
