@@ -1,0 +1,15 @@
+<div class="headerComponent">
+    <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>expand_more</mat-icon>
+        Menu
+    </button>
+    <mat-menu #menu="matMenu">
+        <a href="actions" mat-menu-item>CRUD Actions</a>
+        <a href="item-list" mat-menu-item>Item List</a>
+    </mat-menu>
+
+    <a href="Home" mat-button>
+        Home
+    </a>
+
+</div>
