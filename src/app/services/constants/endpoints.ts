@@ -1,5 +1,5 @@
 export const Endpoints = {
-    todo: {
+    ToDo: {
         getToDos: { method: 'get', path: () => `api/v1/ToDos` },
         createToDo: { method: 'post', path: () => `api/v1/ToDos` },
         updateToDo: { method: 'put', path: () => `api/v1/ToDos` },
