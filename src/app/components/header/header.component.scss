@@ -5,6 +5,10 @@
     border-color: black;
     background-color: #008cba;
     color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
   }
   
   .headerComponent button {
@@ -13,4 +17,6 @@
   
   .headerComponent a {
     color: aliceblue;
+    background-color: #25acd9;
+    border-radius: 5px;
   }

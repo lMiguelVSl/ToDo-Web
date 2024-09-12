@@ -1,15 +1,6 @@
 <div class="headerComponent">
-    <button mat-button [matMenuTriggerFor]="menu">
-        <mat-icon>more_vert</mat-icon>
-        Menu
-    </button>
-    <mat-menu #menu="matMenu">
-        <a href="actions" mat-menu-item>CRUD Actions</a>
-        <a href="item-list" mat-menu-item>Item List</a>
-    </mat-menu>
-
-    <a href="Home" mat-button>
-        Home
-    </a>
-
+    <a routerLink="/actions" mat-button>CRUD Actions</a>
+    <a routerLink="/item-list" mat-button>Item List</a>
+    <a routerLink="Home" mat-button>Home</a>
 </div>
+<router-outlet></router-outlet>
