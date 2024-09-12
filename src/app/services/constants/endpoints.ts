@@ -1,8 +1,8 @@
 export const Endpoints = {
     ToDo: {
-        getToDos: { method: 'get', path: () => `api/v1/ToDos` },
-        createToDo: { method: 'post', path: () => `api/v1/ToDos` },
-        updateToDo: { method: 'put', path: () => `api/v1/ToDos` },
-        deleteToDo: { method: 'delete', path: () => `api/v1/ToDos` },
+        getToDos: { method: 'get', path: () => `/ToDos` },
+        createToDo: { method: 'post', path: () => `/ToDos` },
+        updateToDo: { method: 'put', path: () => `/ToDos` },
+        deleteToDo: { method: 'delete', path: () => `/ToDos` },
     }
 }
