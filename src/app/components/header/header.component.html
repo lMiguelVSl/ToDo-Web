@@ -1,6 +1,10 @@
-<div class="headerComponent">
-    <a routerLink="/actions" mat-button>CRUD Actions</a>
-    <a routerLink="/item-list" mat-button>Item List</a>
-    <a routerLink="Home" mat-button>Home</a>
+<div class="header-main">
+    <p>Token: {{authToken | truncate}}</p>
+    <div class="header-component">
+        <button mat-button type="button" (click)="GetToken()">Get Token</button>
+        <a routerLink="/actions" mat-button>CRUD Actions</a>
+        <a routerLink="/item-list" mat-button>Item List</a>
+        <a routerLink="Home" mat-button>Home</a>
+    </div>
 </div>
 <router-outlet></router-outlet>

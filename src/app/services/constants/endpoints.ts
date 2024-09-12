@@ -6,6 +6,6 @@ export const Endpoints = {
         deleteToDo: { method: 'delete', path: () => `/ToDos` },
     },
     Authentication: {
-        login: { method: 'post', path: () => `/Authentication/login` }
+        login: { method: 'post', path: () => `/Authentication` }
     }
 }

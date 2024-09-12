@@ -1,22 +1,29 @@
-.headerComponent {
-    height: 5%;
-    padding: 5px;
-    border-radius: 1px;
-    border-color: black;
-    background-color: #008cba;
-    color: aliceblue;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
+.header-main {
+  height: 5%;
+  padding: 5px;
+  border-radius: 1px;
+  border-color: black;
+  background-color: #008cba;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.header-component {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 1rem;
+}
+
+button,
+a {
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #324146;
   }
-  
-  .headerComponent button {
-    color: aliceblue;
-  }
-  
-  .headerComponent a {
-    color: aliceblue;
-    background-color: #25acd9;
-    border-radius: 5px;
-  }
+}
