@@ -1,1 +1,15 @@
-<p>home-component works!</p>
+<div class="container">
+    <h1 class="app-title">Welcome to My ToDo App</h1>
+    <p class="app-description">
+        This is a simple CRUD application built with Angular.
+        As required in this application you are going to find two routing functional pages.
+    </p>
+    <p class="app-description">These pages are:</p>
+    <ul class="app-links">
+        <li><a routerLink="/actions" class="app-link" mat-button>CRUD ACTIONS</a></li>
+        <li><a routerLink="/item-list" class="app-link" mat-button>GRID VIEW</a></li>
+    </ul>
+
+    <p style="font-size: 1rem;"><b> can also access these pages via the top menu</b></p>
+</div>
+<router-outlet></router-outlet>
