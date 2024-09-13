@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ToDo, ToDoService } from '../../services';
 import { Router } from '@angular/router';
-import { take } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 import { BaseModule } from '../../shared/base/base.module';
 
 @Component({
@@ -21,7 +21,8 @@ export class TableComponent {
   }
 
   loadData() {
-    this.toDoService.getToDos().pipe(take(1)).subscribe(data => {
+    this.toDoService.getToDos().pipe(filter(x => x != undefined), take(1)).subscribe(data => {
+      if(data.length === 0) this.router.navigate([`/actions`]);
       this.dataSource = data;
     });
   }
@@ -31,7 +32,7 @@ export class TableComponent {
     this.dataSource = [];
   }
 
-  deleteToDo(element: any) {
+  deleteToDo(element: ToDo) {
     this.toDoService.deleteToDo(element.id).subscribe({
       next: (res) => {
         this.loadData();

@@ -22,8 +22,8 @@ export class ToDoService {
         return this.http.put(`${environment.baseUrl}${Endpoints.ToDo.updateToDo.path()}`, toDo);
     }
 
-    deleteToDo(toDoId: any) {
-        return this.http.delete(`${environment.baseUrl}${Endpoints.ToDo.updateToDo.path()}?Id=${toDoId}`);
+    deleteToDo(toDoId: number) {
+        return this.http.delete<string>(`${environment.baseUrl}${Endpoints.ToDo.updateToDo.path()}?taskId=${toDoId}`, { responseType: 'text' as 'json' });
     }
 
 }

@@ -15,7 +15,7 @@ import { ToDo, ToDoService } from '../../services';
 export class FormComponent {
   selectedItem: any;
   isEditMode: boolean = false;
-  ToDo: ToDo = { Id: 0, Title: '', IsDone: false };
+  ToDo: ToDo = { id: 0, title: '', isDone: false };
   ToDoForm: FormGroup;
   toDoId: number = 0;
 
@@ -33,21 +33,21 @@ export class FormComponent {
         this.toDoId = parseInt(params['id']);
         this.ToDoForm.patchValue({
           title: params['title'],
-          isDone: params['isDone'],
+          isDone: params['isDone'] === 'true' ? true : false,
+        });
+      } else {
+        this.ToDoForm = this.formBuilder.group({
+          isDone: [false, Validators.required],
+          title: ['', Validators.required]
         });
       }
     });
-
-      this.ToDoForm = this.formBuilder.group({
-        isDone: [false, Validators.required],
-        title: ['', Validators.required]
-      });
   }
 
   addToDo() {
     if (this.ToDoForm.status === 'VALID') {
-      this.ToDo.Title = this.ToDoForm.value.title;
-      this.ToDo.IsDone = this.ToDoForm.value.isDone;
+      this.ToDo.title = this.ToDoForm.value.title;
+      this.ToDo.isDone = this.ToDoForm.value.isDone;
 
       this.toDoService.createToDo(this.ToDo).pipe().subscribe(
         {
@@ -64,9 +64,9 @@ export class FormComponent {
 
   updateToDo() {
     if (this.ToDoForm.status === 'VALID') {
-      this.ToDo.Id = this.toDoId;
-      this.ToDo.Title = this.ToDoForm.value.title;
-      this.ToDo.IsDone = this.ToDoForm.value.isDone == 'true' ? true : false;
+      this.ToDo.id = this.toDoId;
+      this.ToDo.title = this.ToDoForm.value.title;
+      this.ToDo.isDone = this.ToDoForm.value.isDone;
 
       this.toDoService.updateToDo(this.ToDo).subscribe({
         next: (res) => {

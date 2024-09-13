@@ -14,7 +14,7 @@ import { TruncatePipe } from '../../shared/pipes/truncate.pipe';
 })
 export class HeaderComponent implements OnInit{
 
-  authToken: string = 'Not Authenticated';
+  authToken: string = 'Empty';
   constructor(private headerFacade: HeaderFacade) { }
 
   ngOnInit(): void {
