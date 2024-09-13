@@ -34,12 +34,11 @@ export class TableComponent {
 
   deleteToDo(element: ToDo) {
     this.toDoService.deleteToDo(element.id).subscribe({
-      next: (res) => {
+      next: () => {
         this.loadData();
-        console.log('response delete toDo:', res);
       },
       error: (err) => {
-        console.log('delete toDo error:', err);
+        console.error('delete toDo error:', err);
       }
     });
   }
