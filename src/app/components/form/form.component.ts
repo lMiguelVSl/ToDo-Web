@@ -37,6 +37,11 @@ export class FormComponent {
         });
       }
     });
+
+      this.ToDoForm = this.formBuilder.group({
+        isDone: [false, Validators.required],
+        title: ['', Validators.required]
+      });
   }
 
   addToDo() {

@@ -14,4 +14,8 @@ export class AuthenticationService {
     Login(request: AuthenticationRequest) {
         return this.http.post<string>(`${environment.baseUrl}${Endpoints.Authentication.login.path()}`, request, { responseType: 'text' as 'json' }); 
     }
+
+    checkAuthentication(token: string) {
+        return this.http.post<boolean>(`${environment.baseUrl}${Endpoints.Authentication.checkAuthentication.path()}`, token);
+    }
 }
