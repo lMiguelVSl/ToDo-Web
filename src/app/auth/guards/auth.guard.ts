@@ -13,7 +13,7 @@ export class AuthGuard implements CanMatch, CanActivate {
         return this.authService.checkAuthentication(token)
             .pipe(
                 tap(isAuthenticated => {
-                    if (!isAuthenticated) this.router.navigate(['/Home'])
+                    if (!isAuthenticated) this.router.navigate(['/NotAuthorized'])
                 })
             )
     }

@@ -1,15 +1,18 @@
 import { Routes } from '@angular/router';
 import { HomeComponent, ErrorPageComponent, NotAuthPageComponent } from './views';
 import { FormComponent, TableComponent } from './components';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 export const routes: Routes = [
     {
         path: 'actions',
-        component: FormComponent
+        component: FormComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'item-list',
-        component: TableComponent
+        component: TableComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'Home',
