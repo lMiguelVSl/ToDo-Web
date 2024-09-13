@@ -19,10 +19,10 @@ export class HeaderComponent {
 
   GetToken() {
     this.headerFacade.GetToken('username').pipe(map(x => {
-      return x.toString();
+      localStorage.setItem('authToken', x.toString());
     })).subscribe({
-      next: (token) => {
-        this.authToken = token.toString();
+      next: () => {
+        this.authToken = localStorage.getItem('authToken')?.valueOf() ?? 'Not Authenticated';
       },
       error: (error) => {
         console.error('Error getting user token: ',error);
