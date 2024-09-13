@@ -28,7 +28,7 @@ export class FormComponent {
   }
   ngOnInit(): void {
     this.route.queryParams.subscribe((params: Params) => {
-      if (params['title']) {
+      if (params['title'])  {
         this.isEditMode = true;
         this.toDoId = parseInt(params['id']);
         this.ToDoForm.patchValue({
@@ -36,9 +36,9 @@ export class FormComponent {
           isDone: params['isDone'] === 'true' ? true : false,
         });
       } else {
-        this.ToDoForm = this.formBuilder.group({
-          isDone: [false, Validators.required],
-          title: ['', Validators.required]
+        this.ToDoForm.patchValue({
+          title: '',
+          isDone: false,
         });
       }
     });

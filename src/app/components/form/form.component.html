@@ -13,9 +13,10 @@
             name="title"
             [formControlName]="'title'"
             class="form-control"
+            autocomplete="off"
             required
           />
-          <span class="error" *ngIf="ToDoForm.controls['title'].status === 'INVALID'">
+          <span class="error" *ngIf="ToDoForm.controls['title'].touched && ToDoForm.controls['title'].invalid">
             The title is required
           </span>
         </div>
@@ -27,7 +28,7 @@
           </label>
         </div>
 
-        <button type="button" (click)="isEditMode ? updateToDo() : addToDo()">
+        <button type="button" (click)="isEditMode ? updateToDo() : addToDo()" [hidden]="ToDoForm.invalid">
           {{isEditMode ? 'Update' : 'Add'}}
         </button>
       </form>
