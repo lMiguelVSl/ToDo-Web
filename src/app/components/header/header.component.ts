@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MaterialModule } from '../../shared/material/material.module';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderFacade } from './facade/header.facade';
@@ -12,10 +12,16 @@ import { TruncatePipe } from '../../shared/pipes/truncate.pipe';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
   authToken: string = 'Not Authenticated';
   constructor(private headerFacade: HeaderFacade) { }
+
+  ngOnInit(): void {
+    window.onbeforeunload = () => {
+      localStorage.clear();
+    };
+  }
 
   GetToken() {
     this.headerFacade.GetToken('username').pipe(map(x => {
